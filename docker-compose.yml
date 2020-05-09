@@ -1,0 +1,22 @@
+version: "3.3"
+networks:
+  sonarqube:
+    driver: bridge
+volumes: 
+  sonarqube_data:
+  sonarqube_logs:
+  sonarqube_extensions:
+services:
+  sonarqube:
+    image: sonarqube:8.3.1-community
+    networks: 
+      - sonarqube
+    ports:
+      - "9000:9000"
+    environment: 
+      - OWNER=Ashish
+    volumes: 
+      - "sonarqube_data:/opt/sonarqube/data"
+      - "sonarqube_logs:/opt/sonarqube/logs"
+      - "sonarqube_extensions:/opt/sonarqube/extentions"
+      
