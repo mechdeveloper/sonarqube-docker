@@ -13,6 +13,9 @@
 - Log in to <http://localhost:9000> with System Administrator credentials (login=admin, password=admin).
 Once your server is installed and running, you may also want to [Install Plugins](https://docs.sonarqube.org/latest/setup/install-plugin/). Then you're ready to begin [Analyzing Source Code](https://docs.sonarqube.org/latest/analysis/overview/) .
 
+  > NOTE: With this configuration SonarQube uses Embedded database and it should be used for evaluation purposes only.
+  The embedded database will not scale, it will not support upgrading to newer versions of SonarQube, and there is no support for migrating your data out of it into a different database engine.
+
 - To stop the services
     ```bash
     docker-compose down
@@ -20,7 +23,7 @@ Once your server is installed and running, you may also want to [Install Plugins
 
 ## Components defined in docker-compose.yml
 1. networks
-    - create bridge network in docker named sonarqube
+    - create bridge network in docker named `sonarqube`
 
 2. volumes
 
@@ -35,8 +38,7 @@ Once your server is installed and running, you may also want to [Install Plugins
 
 3. services
     - sonarqube
-      - runs sonarqube:8.3.1-community docker image as a contianer in Docker
-
+      - runs sonarqube:lts-community docker image as a contianer in Docker
 
 ## Reference
-- <https://docs.sonarqube.org/latest/setup/install-server/>
+- <https://docs.sonarqube.org/latest/setup/get-started-2-minutes/>
